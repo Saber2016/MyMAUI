@@ -1,0 +1,21 @@
+# 编译输出和依赖
+bin/
+obj/
+packages/
+*.user
+*.suo
+
+#  Visual Studio 工作区配置
+.vs/
+
+# Rider IDE 配置
+.idea/
+
+# 跨平台系统文件
+.DS_Store
+Thumbs.db
+
+# 其他临时和备份文件
+*.log
+*.tmp
+*.bak

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:UseCommandTest.ViewModels"
+             x:DataType="viewmodels:PersonCollectionViewModel"
+             x:Class="UseCommandTest.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:PersonCollectionViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid Margin="10" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="10">
+        <Button Text="New" Command="{Binding NewCommand}" HorizontalOptions="Start"></Button>
+        <Grid Grid.Row="1" IsEnabled="{Binding IsEditing}" RowDefinitions="Auto,Auto,Auto"
+              ColumnDefinitions="Auto,*" RowSpacing="10" ColumnSpacing="10">
+            <Label Text="Name: " Grid.Row="0" VerticalTextAlignment="Center"></Label>
+            <Entry Text="{Binding PersonEdit.Name}" Grid.Row="0" Grid.Column="1"></Entry>
+            <Label Text="Age: " Grid.Row="1" VerticalTextAlignment="Center"></Label>
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Spacing="10">
+                <Stepper Maximum="100" Value="{Binding PersonEdit.Age}"></Stepper>
+                <Label Text="{Binding PersonEdit.Age,StringFormat='{0} years old'}" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <Label Text="Skills: " Grid.Row="2" VerticalTextAlignment="Center"></Label>
+            <Entry Text="{Binding PersonEdit.Skills}" Grid.Column="1" Grid.Row="2" VerticalTextAlignment="Center"></Entry>
+        </Grid>
+        
+        <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto" HorizontalOptions="Start" ColumnSpacing="20">
+            <Button Text="Submit" Command="{Binding SubmitCommand}" ></Button>
+            <Button Text="Cancel" Command="{Binding CancelCommand}" Grid.Column="1"></Button>
+        </Grid>
+
+        <ListView Grid.Row="3" ItemsSource="{Binding Persons}" Margin="0,10,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:PersonViewModel">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Spacing="10" Padding="10" Margin="10" BackgroundColor="Orange">
+                            <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold"></Label>
+                            <Label Text="{Binding Age, StringFormat='({0} years old)'}"></Label>
+                            <Label Text="{Binding Skills}"></Label>
+                            <Label Text="测试"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+    
+
+</ContentPage>
