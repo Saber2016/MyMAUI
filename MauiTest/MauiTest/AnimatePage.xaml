@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiTest.AnimatePage"
+             xmlns:behaviors="clr-namespace:MauiTest.Behaviors"
+             xmlns:triggers="clr-namespace:MauiTest.Triggers"
+             Title="AnimatePage">
+    <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,*">
+        <Image Source="stars.jpg" behaviors:AttatchedTapBehavior.AttachBehavior="true"  Aspect="AspectFit" HorizontalOptions="Center"></Image>
+        <Slider Grid.Column="1" WidthRequest="200" ThumbColor="Green" MaximumTrackColor="Red" VerticalOptions="Center" HorizontalOptions="Center" Maximum="100" x:Name="Slider"></Slider>
+        <Entry Placeholder="请输入" Style="{StaticResource AnimateEntryBehavior}" Grid.Row="1" HorizontalOptions="Center">
+            <!--<Entry.Behaviors>
+                <behaviors:AnimateBehavior></behaviors:AnimateBehavior>
+            </Entry.Behaviors>-->
+        </Entry>
+        <Button Text="有动画" Grid.Row="1" Grid.Column="1" Style="{StaticResource AnimatedButtonStyle}">
+            <!--<Button.Triggers>
+                --><!--<EventTrigger Event="Clicked">
+                    <triggers:ButtonClickTriggerAction></triggers:ButtonClickTriggerAction>
+                </EventTrigger>--><!--
+                <EventTrigger Event="Pressed">
+                    <triggers:ButtonPressedTriggerAction></triggers:ButtonPressedTriggerAction>
+                </EventTrigger>
+                <EventTrigger Event="Released">
+                    <triggers:ButtonPressedTriggerAction></triggers:ButtonPressedTriggerAction>
+                </EventTrigger>
+            </Button.Triggers>-->
+        </Button>
+    </Grid>
+</ContentPage>

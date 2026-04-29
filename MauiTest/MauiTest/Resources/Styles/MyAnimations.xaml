@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:triggers="clr-namespace:MauiTest.Triggers"
+             xmlns:behaviors="clr-namespace:MauiTest.Behaviors"
+             x:Class="MauiTest.Resources.Styles.MyAnimations">
+
+    <Style x:Key="AnimatedButtonStyle" TargetType="Button">
+        <Style.Triggers>
+            <EventTrigger Event="Pressed">
+                <triggers:ButtonPressedTriggerAction></triggers:ButtonPressedTriggerAction>
+            </EventTrigger>
+            <EventTrigger Event="Released">
+                <triggers:ButtonPressedTriggerAction></triggers:ButtonPressedTriggerAction>
+            </EventTrigger>
+        </Style.Triggers>
+        <Setter Property="BackgroundColor" Value="Olive"></Setter>
+    </Style>
+
+    <Style x:Key="AnimateEntryBehavior" TargetType="Entry">
+        <Style.Behaviors>
+            <behaviors:AnimateBehavior></behaviors:AnimateBehavior>
+        </Style.Behaviors>
+        <Setter Property="MinimumWidthRequest" Value="100"></Setter>
+    </Style>
+</ResourceDictionary>
