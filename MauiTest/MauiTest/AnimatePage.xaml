@@ -4,16 +4,24 @@
              x:Class="MauiTest.AnimatePage"
              xmlns:behaviors="clr-namespace:MauiTest.Behaviors"
              xmlns:triggers="clr-namespace:MauiTest.Triggers"
+             xmlns:graphicsviews="clr-namespace:MauiTest.GraphicViews"
              Title="AnimatePage">
-    <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,*">
-        <Image Source="stars.jpg" behaviors:AttatchedTapBehavior.AttachBehavior="true"  Aspect="AspectFit" HorizontalOptions="Center"></Image>
+    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="10">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="Red" Offset="0.2" />
+                <GradientStop Color="Gold" Offset="0.5"></GradientStop>
+                <GradientStop Color="Green" Offset="0.9" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image Source="stars.jpg" MaximumHeightRequest="400" behaviors:AttatchedTapBehavior.AttachBehavior="true"  Aspect="AspectFit" HorizontalOptions="Center"></Image>
         <Slider Grid.Column="1" WidthRequest="200" ThumbColor="Green" MaximumTrackColor="Red" VerticalOptions="Center" HorizontalOptions="Center" Maximum="100" x:Name="Slider"></Slider>
-        <Entry Placeholder="请输入" Style="{StaticResource AnimateEntryBehavior}" Grid.Row="1" HorizontalOptions="Center">
+        <Entry Placeholder="请输入" MaximumHeightRequest="30" Style="{StaticResource AnimateEntryBehavior}" Grid.Row="1" HorizontalOptions="Center">
             <!--<Entry.Behaviors>
                 <behaviors:AnimateBehavior></behaviors:AnimateBehavior>
             </Entry.Behaviors>-->
         </Entry>
-        <Button Text="有动画" Grid.Row="1" Grid.Column="1" Style="{StaticResource AnimatedButtonStyle}">
+        <Button Text="有动画无响应事件" MaximumHeightRequest="30" FontFamily="momospace" Grid.Row="1" Grid.Column="1" Style="{StaticResource AnimatedButtonStyle}">
             <!--<Button.Triggers>
                 --><!--<EventTrigger Event="Clicked">
                     <triggers:ButtonClickTriggerAction></triggers:ButtonClickTriggerAction>
@@ -26,5 +34,13 @@
                 </EventTrigger>
             </Button.Triggers>-->
         </Button>
+        <!--将字体作为图标-->
+        <Image BackgroundColor="#D1D1D1" HeightRequest="100" WidthRequest="100" Aspect="AspectFit" HorizontalOptions="Center" Grid.Column="2">
+            <Image.Source>
+                <FontImageSource FontFamily="OpenSansRegular" Glyph="王" Color="Blue" Size="150"></FontImageSource>
+            </Image.Source>
+        </Image>
+        <!--如何绘制一个环形镂空图-->
+        <GraphicsView  x:Name="Graph" Grid.Column="2" HeightRequest="120" WidthRequest="120" Grid.Row="1" Drawable="{graphicsviews:GraphicsDrawable}"></GraphicsView>
     </Grid>
 </ContentPage>

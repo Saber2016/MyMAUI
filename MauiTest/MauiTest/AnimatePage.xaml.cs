@@ -10,6 +10,22 @@ public partial class AnimatePage : ContentPage
         this.Loaded += OnPageLoaded;
 	}
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        if(Graph.Drawable is GraphicViews.GraphicsDrawable drawable)
+        {
+            await drawable.LoadImageAsync();
+            Graph.Invalidate();
+        }
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        this.Loaded -= OnPageLoaded;
+    }
+    
 
 	private async void OnPageLoaded(object? sender, EventArgs e)
 	{

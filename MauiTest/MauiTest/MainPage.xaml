@@ -37,6 +37,13 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="15" Padding="20" BackgroundColor="Aquamarine">
+            <VerticalStackLayout.Background>
+                <RadialGradientBrush Center="0.5,0.5" Radius="0.5">
+                    <GradientStop Color="Salmon" Offset="0.2"></GradientStop>
+                    <GradientStop Color="Gold" Offset="0.5"></GradientStop>
+                    <GradientStop Color="Olive" Offset="0.8"></GradientStop>
+                </RadialGradientBrush>
+            </VerticalStackLayout.Background>
             <Label Text="Enter a Phoneword" FontSize="20"></Label>
             <Entry x:Name="PhoneNumberText" Text="1-555-NETMAUI"></Entry>
             <Button x:Name="TranslateButton" Text="翻译" Clicked="OnTranslate"></Button>
