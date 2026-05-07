@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels ="clr-namespace:CanvasUsage.ViewModels"
+             xmlns:extemsions ="clr-namespace:CanvasUsage.Extensions"
              x:Class="CanvasUsage.MainPage">
 
     <ContentPage.BindingContext>
@@ -25,7 +26,7 @@
         </Border>
         <Border Grid.Column="1" Stroke="AliceBlue" StrokeShape="RoundRectangle 10" Padding="5">
             <VerticalStackLayout Spacing="10" Background="AliceBlue">
-                <GraphicsView x:Name="TextureDrawBox" HeightRequest="200" WidthRequest="200" Drawable="{Binding MyPaint}"></GraphicsView>
+                <GraphicsView x:Name="TextureDrawBox" extemsions:GraphicsViewExtensions.InvalidateTrigger="{Binding SelectedPaint}" HeightRequest="200" WidthRequest="200" Drawable="{Binding MyPaint}"></GraphicsView>
                 <BoxView HeightRequest="1"></BoxView>
                 <Picker Margin="5" Title="选择绘制纹理" SelectedItem="{Binding SelectedPaint}" ItemsSource="{x:Static viewmodels:MainPageViewModel.Paints}"></Picker>
             </VerticalStackLayout>

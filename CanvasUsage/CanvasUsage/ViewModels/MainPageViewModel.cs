@@ -43,12 +43,11 @@ namespace CanvasUsage.ViewModels
         public static List<string> Paints { get; } = new List<string>
         {
             "SolidBrush",
-            "HatchBrush",
-            "TextureBrush",
-            "LinearGradientBrush",
-            "PathGradientBrush",
-            "Example1",
-            "Example2"
+            "ImagePaint",
+            "PatternPaint",
+            "LinearGradientPaint",
+            "HorizentalLinearGradientPaint",
+            "RadialGradientPaint"
         };
 
         [ObservableProperty]
